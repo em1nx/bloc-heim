@@ -1,6 +1,3 @@
-
-![Picture](assets/logo.png)
-
 # Bloc Heim
 
 Visual Studio Code extension which drastically reduces [bloc](https://bloclibrary.dev/#/)-related boilerplate code for Flutter projects. 
