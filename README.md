@@ -1,6 +1,5 @@
-<p align="center">
-<img src="./assets/bloc_logo_full.png" height="100" alt="Bloc Heim" />
-</p>
+
+![Picture](assets/logo.png){ width="100" height="100" style="display: block; margin: 0 auto" }
 
 # Bloc Heim
 
