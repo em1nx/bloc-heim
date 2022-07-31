@@ -1,5 +1,5 @@
 
-![Picture](assets/logo.png){ width="100" height="100" style="display: block; margin: 0 auto" }
+![Picture](assets/logo.png)
 
 # Bloc Heim
 
