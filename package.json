@@ -3,6 +3,7 @@
 	"displayName": "Bloc Heim",
 	"description": "Visual Studio Code extension which drastically reduces bloc-related boilerplate code for Flutter projects.",
 	"version": "1.0.0",
+	"publisher": "em1nx",
 	"author": {
 		"name": "Emin Chernov",
 		"email": "mail@emin.pro",
