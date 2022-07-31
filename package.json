@@ -1,0 +1,67 @@
+{
+	"name": "bloc-heim",
+	"displayName": "Bloc Heim",
+	"description": "Visual Studio Code extension which drastically reduces bloc-related boilerplate code for Flutter projects.",
+	"version": "1.0.0",
+	"author": {
+		"name": "Emin Chernov",
+		"email": "mail@emin.pro",
+		"url": "https://emin.pro"
+	},
+	"repository": {
+		"url": "https://github.com/em1nx/bloc-heim.git"
+	},
+	"engines": {
+		"vscode": "^1.69.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"activationEvents": [
+        "onCommand:bloc-heim.createBloc"
+	],
+	"keywords": [
+		"flutter",
+		"bloc",
+		"state-management"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "bloc-heim.createBloc",
+				"title": "Bloc Heim: Create Bloc"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "bloc-heim.createBloc",
+					"when": "explorerResourceIsFolder",
+					"group": "bloc-heim@1"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.69.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "16.x",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"eslint": "^8.18.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.7.4",
+		"@vscode/test-electron": "^2.1.5"
+	}
+}
