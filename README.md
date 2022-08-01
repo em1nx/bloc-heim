@@ -19,10 +19,3 @@ Currently, we only support codegen for [equatable](https://pub.dev/packages/equa
 
 - [flutter_bloc ^8.0.0](https://pub.dev/packages/flutter_bloc)
 - [equatable ^2.0.0](https://pub.dev/packages/equatable)
-
-## Release Notes
-
-### 1.0.0
-
-- Equatable-based bloc template command and context menu. 
-
