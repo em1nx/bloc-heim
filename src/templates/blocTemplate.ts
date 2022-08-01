@@ -1,7 +1,7 @@
 
 export function blocTemplate(blocClassname: string, blocFilename: string): string {
     return `
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
