@@ -1,0 +1,20 @@
+{
+    "Bloc Event": {
+      "prefix": "blocevent",
+      "body": [
+        "class ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}${1:Noun}${2:Verb} extends ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}Event {",
+        "\tconst ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}$1$2();",
+        "}"
+      ],
+      "description": "Bloc Subject + Noun (optional) + Verb (event)"
+    },  
+    "Bloc Event Handler": {
+      "prefix": "onblocevent",
+      "body": [
+        "on<${TM_FILENAME_BASE/(.*)_bloc$/${1:/pascalcase}/g}${1:Event}>((event, emit) {",
+        "\t${2:// TODO: implement Bloc Event Handler}",
+        "});"
+      ],
+      "description": "Register a new Bloc Event Handler"
+    }
+  }
