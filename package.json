@@ -43,7 +43,13 @@
 					"group": "bloc-heim@1"
 				}
 			]
-		}
+		},
+		"snippets": [
+			{
+			  "language": "dart",
+			  "path": "./snippets/bloc.json"
+			}
+		  ]		
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
