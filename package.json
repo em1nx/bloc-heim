@@ -20,7 +20,9 @@
 		"Snippets"
 	],
 	"activationEvents": [
-        "onCommand:bloc-heim.createBloc"
+        "onCommand:bloc-heim.createBloc",
+		"onCommand:bloc-heim.wrapWithBlocProvider",
+		"onCommand:bloc-heim.testBloc"
 	],
 	"keywords": [
 		"flutter",
@@ -33,6 +35,14 @@
 			{
 				"command": "bloc-heim.createBloc",
 				"title": "Bloc Heim: Create Bloc"
+			},
+			{
+				"command": "bloc-heim.wrapWithBlocProvider",
+				"title": "Bloc Heim: Wrap with BlocProvider"
+			},
+			{
+				"command": "bloc-heim.testBloc",
+				"title": "Bloc Heim: Test Bloc"
 			}
 		],
 		"menus": {
