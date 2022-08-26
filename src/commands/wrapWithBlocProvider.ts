@@ -1,15 +1,8 @@
-import { wrapWith } from "../utils";
 
+import { blocProviderTemplate } from "../templates/blocProviderTemplate";
+import { importBlocLibrary, wrapWith } from "../utils";
 
 export async function wrapWithBlocProvider() {
-    wrapWith(
-        (child: string) => {
-          return `
-BlocProvider(
-\tcreate: (context) => \${1:BlocClassname}.fromContext(context),
-\tchild: ${child},
-)            
-`.trim();
-        }
-    );
+    await wrapWith(blocProviderTemplate);
+    await importBlocLibrary();    
 } 
