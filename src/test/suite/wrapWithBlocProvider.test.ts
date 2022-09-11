@@ -1,4 +1,4 @@
-import { commands, Position, window } from "vscode";
+import { commands, Position, Selection, window } from "vscode";
 import { flutterWidgetFixture } from "../fixtures";
 import { openFile } from "../helpers";
 import * as assert from 'assert';
@@ -12,7 +12,6 @@ suite('wrapWithBlocProvider Test Suite', () => {
     
 	test('wrapWithBlocProvider check', async () => {
         const doc = await openFile(flutterWidgetFixture(), new Position(10,17));
-        const editor = window.activeTextEditor!;
         await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
 		const expectedContent = `
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,6 +37,14 @@ class FlutterWidget extends StatelessWidget {
         assert.strictEqual(doc.getText(), expectedContent);
     });
 
+    test('wrapWithBlocProvider selection check', async () => {
+      const doc = await openFile(flutterWidgetFixture(), new Position(10,17));
+      const editor = window.activeTextEditor!;
+      await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
+      assert.deepEqual (
+        editor.selections, 
+        [new Selection(12,31,12,44)]);
+  });
 
 });
 
