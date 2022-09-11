@@ -20,7 +20,9 @@
 		"Snippets"
 	],
 	"activationEvents": [
-        "onCommand:bloc-heim.createBloc"
+		"onCommand:bloc-heim.createBloc",
+		"onCommand:bloc-heim.wrapWithBlocProvider",
+		"onCommand:bloc-heim.testBloc"
 	],
 	"keywords": [
 		"flutter",
@@ -33,6 +35,14 @@
 			{
 				"command": "bloc-heim.createBloc",
 				"title": "Bloc Heim: Create Bloc"
+			},
+			{
+				"command": "bloc-heim.wrapWithBlocProvider",
+				"title": "Bloc Heim: Wrap with BlocProvider"
+			},
+			{
+				"command": "bloc-heim.testBloc",
+				"title": "Bloc Heim: Test Bloc"
 			}
 		],
 		"menus": {
@@ -46,10 +56,10 @@
 		},
 		"snippets": [
 			{
-			  "language": "dart",
-			  "path": "./snippets/bloc.json"
+				"language": "dart",
+				"path": "./snippets/bloc.json"
 			}
-		  ]		
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -71,5 +81,11 @@
 		"mocha": "^10.0.0",
 		"typescript": "^4.7.4",
 		"@vscode/test-electron": "^2.1.5"
+	},
+	"__metadata": {
+		"id": "05aec9dd-6a6b-416d-ae75-700f7a02af05",
+		"publisherDisplayName": "Emin Chernov",
+		"publisherId": "a0009d6d-70e5-4b9d-bb5d-c5e34a972692",
+		"isPreReleaseVersion": false
 	}
 }
