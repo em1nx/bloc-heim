@@ -1,6 +1,6 @@
 import { commands, Position, Selection, window } from "vscode";
 import { flutterWidgetFixture } from "../fixtures";
-import { openFile } from "../helpers";
+import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
 
@@ -11,7 +11,7 @@ suite('wrapWithBlocProvider Test Suite', () => {
     });
     
 	test('wrapWithBlocProvider check', async () => {
-        const doc = await openFile(flutterWidgetFixture(), new Position(10,17));
+        const doc = await openDocument(flutterWidgetFixture(), new Position(10,17));
         await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
 		const expectedContent = `
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +38,7 @@ class FlutterWidget extends StatelessWidget {
     });
 
     test('wrapWithBlocProvider selection check', async () => {
-      const doc = await openFile(flutterWidgetFixture(), new Position(10,17));
+      const doc = await openDocument(flutterWidgetFixture(), new Position(10,17));
       const editor = window.activeTextEditor!;
       await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
       assert.deepEqual (

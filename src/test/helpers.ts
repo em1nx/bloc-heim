@@ -1,6 +1,6 @@
 import { Position, Range, TextDocument, window, workspace } from "vscode";
 
-export async function openFile(content: string, position: Position = new Position(0,0)): Promise<TextDocument> {
+export async function openDocument(content: string, position: Position = new Position(0,0)): Promise<TextDocument> {
     const document = await createDocument(content, 'dart');
     await window.showTextDocument(document, {
         selection: new Range(position.line, position.character, position.line, position.character)
