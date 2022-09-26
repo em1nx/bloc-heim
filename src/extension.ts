@@ -1,6 +1,7 @@
 import { commands, ExtensionContext } from 'vscode';
 import { createBlocCommand } from './commands/createBlocCommand';
 import { wrapWithBlocBuilderCommand } from './commands/wrapWithBlocBuilderCommand';
+import { wrapWithBlocConsumerCommand } from './commands/wrapWithBlocConsumerCommand';
 import { wrapWithBlocListenerCommand } from './commands/wrapWithBlocListenerCommand';
 import { wrapWithBlocProviderCommand } from './commands/wrapWithBlocProviderCommand';
 import { wrapWithBlocSelectorCommand } from './commands/wrapWithBlocSelectorCommand';
@@ -34,6 +35,10 @@ export function activate(context: ExtensionContext) {
 
     context.subscriptions.push(
         commands.registerCommand('bloc-heim.wrapWithMultiBlocListener', wrapWithMultiBlocListenerCommand)
+    );
+
+    context.subscriptions.push(
+        commands.registerCommand('bloc-heim.wrapWithBlocConsumer', wrapWithBlocConsumerCommand)
     );
 
 }
