@@ -28,7 +28,8 @@
 		"onCommand:bloc-heim.wrapWithBlocListener",
 		"onCommand:bloc-heim.wrapWithMultiBlocListener",
 		"onCommand:bloc-heim.wrapWithBlocConsumer",
-		"onCommand:bloc-heim.wrapWithRepositoryProvider"
+		"onCommand:bloc-heim.wrapWithRepositoryProvider",
+		"onCommand:bloc-heim.wrapWithMultiRepositoryProvider"
 	],
 	"keywords": [
 		"flutter",
@@ -73,6 +74,10 @@
 			{
 				"command": "bloc-heim.wrapWithRepositoryProvider",
 				"title": "Bloc Heim: Wrap with RepositoryProvider"
+			},
+			{
+				"command": "bloc-heim.wrapWithMultiRepositoryProvider",
+				"title": "Bloc Heim: Wrap with MultiRepositoryProvider"
 			}
 		],
 		"menus": {
