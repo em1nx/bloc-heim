@@ -7,6 +7,7 @@ import { wrapWithBlocProviderCommand } from './commands/wrapWithBlocProviderComm
 import { wrapWithBlocSelectorCommand } from './commands/wrapWithBlocSelectorCommand';
 import { wrapWithMultiBlocListenerCommand } from './commands/wrapWithMultiBlocListenerCommand';
 import { wrapWithMultiBlocProviderCommand } from './commands/wrapWithMultiBlocProviderCommand';
+import { wrapWithRepositoryProviderCommand } from './commands/wrapWithRepositoryProviderCommand';
 
 export function activate(context: ExtensionContext) {
     context.subscriptions.push(
@@ -39,6 +40,10 @@ export function activate(context: ExtensionContext) {
 
     context.subscriptions.push(
         commands.registerCommand('bloc-heim.wrapWithBlocConsumer', wrapWithBlocConsumerCommand)
+    );
+
+    context.subscriptions.push(
+        commands.registerCommand('bloc-heim.wrapWithRepositoryProvider', wrapWithRepositoryProviderCommand)
     );
 
 }
