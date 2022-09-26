@@ -22,7 +22,7 @@
 	"activationEvents": [
 		"onCommand:bloc-heim.createBloc",
 		"onCommand:bloc-heim.wrapWithBlocProvider",
-		"onCommand:bloc-heim.testBloc"
+		"onCommand:bloc-heim.wrapWithBlocBuilder"
 	],
 	"keywords": [
 		"flutter",
@@ -41,8 +41,8 @@
 				"title": "Bloc Heim: Wrap with BlocProvider"
 			},
 			{
-				"command": "bloc-heim.testBloc",
-				"title": "Bloc Heim: Test Bloc"
+				"command": "bloc-heim.wrapWithBlocBuilder",
+				"title": "Bloc Heim: Wrap with BlocBuilder"
 			}
 		],
 		"menus": {
@@ -67,7 +67,7 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "tsc -p ./ && node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.69.0",
