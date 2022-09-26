@@ -22,7 +22,8 @@
 	"activationEvents": [
 		"onCommand:bloc-heim.createBloc",
 		"onCommand:bloc-heim.wrapWithBlocProvider",
-		"onCommand:bloc-heim.wrapWithBlocBuilder"
+		"onCommand:bloc-heim.wrapWithBlocBuilder",
+		"onCommand:bloc-heim.wrapWithBlocSelector"
 	],
 	"keywords": [
 		"flutter",
@@ -43,6 +44,10 @@
 			{
 				"command": "bloc-heim.wrapWithBlocBuilder",
 				"title": "Bloc Heim: Wrap with BlocBuilder"
+			},
+			{
+				"command": "bloc-heim.wrapWithBlocSelector",
+				"title": "Bloc Heim: Wrap with BlocSelector"
 			}
 		],
 		"menus": {

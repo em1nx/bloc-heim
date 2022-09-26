@@ -4,15 +4,15 @@ import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
 
-suite('wrapWithBlocProvider Test Suite', () => {
+suite('wrapWithBlocSelector Test Suite', () => {
 
     afterEach(async() => {
         await commands.executeCommand('workbench.action.closeActiveEditor');
     });
     
-	test('wrapWithBlocProvider check', async () => {
+	test('wrapWithBlocSelector check', async () => {
         const doc = await openDocument(flutterWidgetFixture(), new Position(10,17));
-        await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
+        await commands.executeCommand('bloc-heim.wrapWithBlocSelector');
 		const expectedContent = `
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +25,14 @@ class FlutterWidget extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       child: const Center(
-        child: BlocProvider(
-          create: (context) => Bloc.fromContext(context),
-          child: Text('this is my test text'),
+        child: BlocSelector<Bloc,State,bool>(
+          selector: (state) {
+            // TODO: add your custom selector code
+            return true;
+          },
+          builder: (context, state) {
+            return Text('this is my test text');
+          },
         ),
       ),
     );
