@@ -1,4 +1,4 @@
-// Forked from https://github.com/felangel/bloc/blob/313e963d9374871395a6099f753975498c037267/extensions/vscode/src/utils/wrap-with.ts
+/// Forked from https://github.com/felangel/bloc/blob/313e963d9374871395a6099f753975498c037267/extensions/vscode/src/utils/wrap-with.ts
 
 import { commands, SnippetString, window } from "vscode";
 import { getSelectedText } from "./getSelectedText";
