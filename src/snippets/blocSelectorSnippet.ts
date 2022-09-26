@@ -2,7 +2,7 @@
 export function blocSelectorSnippet(child: string): string {
     return `
 BlocSelector<\${1:Bloc},\${2:State},bool>(
-\selector: (state) {
+\tselector: (state) {
 \t\t// TODO: add your custom selector code
 \t\treturn true;
 \t},

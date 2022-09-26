@@ -26,7 +26,7 @@ class FlutterWidget extends StatelessWidget {
       alignment: Alignment.center,
       child: const Center(
         child: BlocProvider(
-          create: (context) => BlocClassname.fromContext(context),
+          create: (context) => Bloc.fromContext(context),
           child: Text('this is my test text'),
         ),
       ),
@@ -36,15 +36,6 @@ class FlutterWidget extends StatelessWidget {
 `.trim();
         assert.strictEqual(doc.getText(), expectedContent);
     });
-
-    test('wrapWithBlocProvider selection check', async () => {
-      const doc = await openDocument(flutterWidgetFixture(), new Position(10,17));
-      const editor = window.activeTextEditor!;
-      await commands.executeCommand('bloc-heim.wrapWithBlocProvider');
-      assert.deepEqual (
-        editor.selections, 
-        [new Selection(12,31,12,44)]);
-  });
 
 });
 

@@ -25,7 +25,7 @@ class FlutterWidget extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       child: const Center(
-        child: BlocSelector<Bloc,State>(
+        child: BlocSelector<Bloc,State,bool>(
           selector: (state) {
             // TODO: add your custom selector code
             return true;
