@@ -3,6 +3,7 @@ import { createBlocCommand } from './commands/createBlocCommand';
 import { wrapWithBlocBuilderCommand } from './commands/wrapWithBlocBuilderCommand';
 import { wrapWithBlocProviderCommand } from './commands/wrapWithBlocProviderCommand';
 import { wrapWithBlocSelectorCommand } from './commands/wrapWithBlocSelectorCommand';
+import { wrapWithMultiBlocProviderCommand } from './commands/wrapWithMultiBlocProviderCommand';
 
 export function activate(context: ExtensionContext) {
     context.subscriptions.push(
@@ -19,6 +20,10 @@ export function activate(context: ExtensionContext) {
 
     context.subscriptions.push(
         commands.registerCommand('bloc-heim.wrapWithBlocSelector', wrapWithBlocSelectorCommand)
+    );
+
+    context.subscriptions.push(
+        commands.registerCommand('bloc-heim.wrapWithMultiBlocProvider', wrapWithMultiBlocProviderCommand)
     );
 
 }
