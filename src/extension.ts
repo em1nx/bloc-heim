@@ -1,7 +1,8 @@
 import { commands, ExtensionContext } from 'vscode';
-import { createBlocCommand, wrapWithBlocProvider } from './commands';
-import { wrapWithBlocBuilder } from './commands/wrapWithBlocBuilder';
-import { wrapWithBlocSelector } from './commands/wrapWithBlocSelector';
+import { createBlocCommand } from './commands/createBlocCommand';
+import { wrapWithBlocBuilderCommand } from './commands/wrapWithBlocBuilderCommand';
+import { wrapWithBlocProviderCommand } from './commands/wrapWithBlocProviderCommand';
+import { wrapWithBlocSelectorCommand } from './commands/wrapWithBlocSelectorCommand';
 
 export function activate(context: ExtensionContext) {
     context.subscriptions.push(
@@ -9,15 +10,15 @@ export function activate(context: ExtensionContext) {
     );
 
     context.subscriptions.push(
-        commands.registerCommand('bloc-heim.wrapWithBlocProvider', wrapWithBlocProvider)
+        commands.registerCommand('bloc-heim.wrapWithBlocProvider', wrapWithBlocProviderCommand)
     );
 
     context.subscriptions.push(
-        commands.registerCommand('bloc-heim.wrapWithBlocBuilder', wrapWithBlocBuilder)
+        commands.registerCommand('bloc-heim.wrapWithBlocBuilder', wrapWithBlocBuilderCommand)
     );
 
     context.subscriptions.push(
-        commands.registerCommand('bloc-heim.wrapWithBlocSelector', wrapWithBlocSelector)
+        commands.registerCommand('bloc-heim.wrapWithBlocSelector', wrapWithBlocSelectorCommand)
     );
 
 }
