@@ -24,7 +24,8 @@
 		"onCommand:bloc-heim.wrapWithBlocProvider",
 		"onCommand:bloc-heim.wrapWithBlocBuilder",
 		"onCommand:bloc-heim.wrapWithBlocSelector",
-		"onCommand:bloc-heim.wrapWithMultiBlocProvider"
+		"onCommand:bloc-heim.wrapWithMultiBlocProvider",
+		"onCommand:bloc-heim.wrapWithBlocListener"
 	],
 	"keywords": [
 		"flutter",
@@ -53,6 +54,10 @@
 			{
 				"command": "bloc-heim.wrapWithMultiBlocProvider",
 				"title": "Bloc Heim: Wrap with MultiBlocProvider"
+			},
+			{
+				"command": "bloc-heim.wrapWithBlocListener",
+				"title": "Bloc Heim: Wrap with BlocListener"
 			}
 		],
 		"menus": {
