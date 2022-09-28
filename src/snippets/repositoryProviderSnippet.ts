@@ -1,9 +1,10 @@
+import { fixEmptyChild } from "../utils";
 
 export function repositoryProviderSnippet(child: string): string {
     return `
 RepositoryProvider(
 \tcreate: (context) => \${1:Repository}(),
-\tchild: ${child},
+\tchild: ${fixEmptyChild(child)},
 )        
 `.trim();
 }

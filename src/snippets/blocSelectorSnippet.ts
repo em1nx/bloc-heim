@@ -1,3 +1,4 @@
+import { fixEmptyChild } from "../utils";
 
 export function blocSelectorSnippet(child: string): string {
     return `
@@ -7,7 +8,7 @@ BlocSelector<\${1:Bloc},\${2:State},bool>(
 \t\treturn true;
 \t},
 \tbuilder: (context, state) {
-\t\treturn ${child};
+\t\treturn ${fixEmptyChild(child)};
 \t},
 )        
 `.trim();

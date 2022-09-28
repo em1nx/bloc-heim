@@ -1,3 +1,4 @@
+import { fixEmptyChild } from "../utils";
 
 export function multiBlocListenerSnippet(child: string): string {
     return `
@@ -10,7 +11,7 @@ MultiBlocListener(
 \t\t),
 \t\t// TODO: you can add additional listeners here
 \t],
-\tchild: ${child},
+\tchild: ${fixEmptyChild(child)},
 )        
 `.trim();
 }

@@ -1,3 +1,4 @@
+import { fixEmptyChild } from "../utils";
 
 export function multiRepositoryProviderSnippet(child: string): string {
     return `
@@ -8,7 +9,7 @@ MultiRepositoryProvider(
 \t\t),
 \t\t// TODO: you can add additional repositories here
 \t],
-\tchild: ${child},
+\tchild: ${fixEmptyChild(child)},
 )        
 `.trim();
 }
