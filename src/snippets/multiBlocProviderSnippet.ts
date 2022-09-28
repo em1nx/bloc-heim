@@ -1,3 +1,4 @@
+import { fixEmptyChild } from "../utils";
 
 export function multiBlocProviderSnippet(child: string): string {
     return `
@@ -8,7 +9,7 @@ MultiBlocProvider(
 \t\t),
 \t\t// TODO: you can add additional providers here
 \t],
-\tchild: ${child},
+\tchild: ${fixEmptyChild(child)},
 )        
 `.trim();
 }
