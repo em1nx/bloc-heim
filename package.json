@@ -20,6 +20,7 @@
 		"Snippets"
 	],
 	"activationEvents": [
+		"workspaceContains:**/pubspec.yaml",
 		"onCommand:bloc-heim.createBloc",
 		"onCommand:bloc-heim.wrapWithBlocProvider",
 		"onCommand:bloc-heim.wrapWithBlocBuilder",

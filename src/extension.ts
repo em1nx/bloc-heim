@@ -1,4 +1,5 @@
-import { commands, ExtensionContext } from 'vscode';
+import { commands, ExtensionContext, languages } from 'vscode';
+import { BlocCodeActionProvider } from './code-actions/blocCodeActionsProvider';
 import { createBlocCommand } from './commands/createBlocCommand';
 import { wrapWithBlocBuilderCommand } from './commands/wrapWithBlocBuilderCommand';
 import { wrapWithBlocConsumerCommand } from './commands/wrapWithBlocConsumerCommand';
@@ -51,6 +52,10 @@ export function activate(context: ExtensionContext) {
         commands.registerCommand('bloc-heim.wrapWithMultiRepositoryProvider', wrapWithMultiRepositoryProviderCommand)
     );
 
+    languages.registerCodeActionsProvider(
+        { language: "dart", scheme: "file" },
+        new BlocCodeActionProvider(),
+    );
 }
 
 
