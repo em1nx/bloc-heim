@@ -1,6 +1,6 @@
 # Bloc Heim
 
-Visual Studio Code extension which drastically reduces [bloc](https://bloclibrary.dev/#/)-related boilerplate code for Flutter projects. 
+[VSCode](https://code.visualstudio.com/) extension which drastically reduces [bloc](https://bloclibrary.dev/#/)-related boilerplate code for Flutter projects. 
 
 ## Features
 
@@ -25,8 +25,8 @@ Commands and code-actions for all bloc Flutter widgets:
 
 ### Creating a bloc
 
-You can create a new bloc with `bloc-heim.createBloc` command in the Command Palette.  
-Also, you can right-click on a folder in the file explorer and then select "Bloc Heim: Create Bloc" item.
+- You can create a new bloc with `bloc-heim.createBloc` command in the Command Palette.
+- Also, you can right-click on a folder in the file explorer and then select "Bloc Heim: Create Bloc" item.
 
 ### Wrapping a code with Bloc widgets
 
