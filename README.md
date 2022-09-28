@@ -26,11 +26,11 @@ Commands and code-actions for all bloc Flutter widgets:
 ### Creating a bloc
 
 You can create a new bloc with `bloc-heim.createBloc` command in the Command Palette.  
-Also you can right click on a folder in the file exporer and then select "Bloc Heim: Create Bloc" item.
+Also, you can right-click on a folder in the file explorer and then select "Bloc Heim: Create Bloc" item.
 
 ### Wrapping a code with Bloc widgets
 
-- Place cursor on a code (widget) your want to be wrapped with a Bloc Widget.
+- Place cursor on a code (widget) you want to be wrapped with a Bloc Widget.
 - Open code actions context menu: run a [Quick Fix or Refactor command](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings).
 - Select a command which you want to use (Wrap with BlocBuilder, Wrap with BlocProvider etc.)
 - Type bloc's name and state placeholders.
