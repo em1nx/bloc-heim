@@ -4,11 +4,22 @@ Visual Studio Code extension which drastically reduces [bloc](https://bloclibrar
 
 ## Features
 
-Currently, we only support codegen for [equatable](https://pub.dev/packages/equatable)-based bloc template, which includes:
+Command `bloc-heim.createBloc` for [equatable](https://pub.dev/packages/equatable)-based bloc template, which includes:
 
 - Main bloc file. 
 - Bloc state file — one class with status field, with respect to official [bloc naming convention](https://bloclibrary.dev/#/blocnamingconventions).  
 - Bloc events file. 
+
+Commands and code-actions for all bloc Flutter widgets:
+- BlocProvider: `bloc-heim.wrapWithBlocProvider`
+- MultiBlocProvider: `bloc-heim.wrapWithMultiBlocProvider`
+- BlocBuilder: `bloc-heim.wrapWithBlocBuilder`
+- BlocSelector: `bloc-heim.wrapWithBlocSelector`
+- BlocListener: `bloc-heim.wrapWithBlocListener`
+- MultiBlocListener: `bloc-heim.wrapWithMultiBlocListener`
+- BlocConsumer: `bloc-heim.wrapWithBlocConsumer`
+- RepositoryProvider: `bloc-heim.wrapWithRepositoryProvider`
+- MultiRepositoryProvider: `bloc-heim.wrapWithMultiRepositoryProvider`
 
 ## Usage
 
