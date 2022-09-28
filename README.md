@@ -1,6 +1,6 @@
 # Bloc Heim
 
-[VSCode](https://code.visualstudio.com/) extension which drastically reduces [bloc](https://bloclibrary.dev/#/)-related boilerplate code for Flutter projects. 
+[VSCode](https://code.visualstudio.com/) extension which drastically reduces [bloc](https://bloclibrary.dev/#/)-related boilerplate code for [Flutter](https://flutter.dev/) projects. 
 
 ## Features
 
