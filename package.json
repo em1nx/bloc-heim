@@ -30,7 +30,8 @@
 		"onCommand:bloc-heim.wrapWithMultiBlocListener",
 		"onCommand:bloc-heim.wrapWithBlocConsumer",
 		"onCommand:bloc-heim.wrapWithRepositoryProvider",
-		"onCommand:bloc-heim.wrapWithMultiRepositoryProvider"
+		"onCommand:bloc-heim.wrapWithMultiRepositoryProvider",
+		"onCommand:bloc-heim.addStateProperty"
 	],
 	"keywords": [
 		"flutter",
@@ -79,6 +80,10 @@
 			{
 				"command": "bloc-heim.wrapWithMultiRepositoryProvider",
 				"title": "Bloc Heim: Wrap with MultiRepositoryProvider"
+			},
+			{
+				"command": "bloc-heim.addStateProperty",
+				"title": "Bloc Heim: Add bloc state property"
 			}
 		],
 		"menus": {

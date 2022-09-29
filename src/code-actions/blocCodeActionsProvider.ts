@@ -13,7 +13,17 @@ export class BlocCodeActionProvider implements CodeActionProvider {
       return [];
     }
 
+    const isAddStateProperty: boolean = false;
+
     return [
+      ...(isAddStateProperty
+        ? [
+            {
+              command: "bloc-heim.addStateProperty",
+              title: "Add bloc state property",
+            },
+          ]
+        : []),      
       {
         command: "bloc-heim.wrapWithBlocProvider",
         title: "Wrap with BlocProvider",
