@@ -15,13 +15,13 @@ class AddOrderState extends Equatable {
     required this.status,
     this.error = '',
   });
-
+  
   final AddOrderStatus status;
   final String error;
   
   @override
   List<Object?> get props => [status, error];
-
+  
   AddOrderState copyWith({
     AddOrderStatus? status,
     String? error,

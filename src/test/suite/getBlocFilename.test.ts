@@ -2,7 +2,7 @@ import * as assert from 'assert';
 import { getBlocFilename } from '../../utils';
 
 
-suite('getBlocFilename Test Suite', () => {
+suite.skip('getBlocFilename Test Suite', () => {
 
     const samples = [
         // One word

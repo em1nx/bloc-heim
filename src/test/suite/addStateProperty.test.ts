@@ -1,11 +1,10 @@
 import { commands, Position, Selection, window } from "vscode";
-import { flutterWidgetFixture } from "../fixtures";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
 import { blocStateFixture } from "../fixtures/blocStateFixture";
 
-suite('addStateProperty Test Suite', () => {
+suite.skip('addStateProperty Test Suite', () => {
 
     afterEach(async() => {
         await commands.executeCommand('workbench.action.closeActiveEditor');

@@ -4,7 +4,7 @@ import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
 
-suite('wrapWithMultiRepositoryProvider Test Suite', () => {
+suite.skip('wrapWithMultiRepositoryProvider Test Suite', () => {
 
     afterEach(async() => {
         await commands.executeCommand('workbench.action.closeActiveEditor');

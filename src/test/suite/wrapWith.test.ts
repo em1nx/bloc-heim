@@ -5,7 +5,7 @@ import * as assert from 'assert';
 import { afterEach } from "mocha";
 import { wrapWith } from "../../utils";
 
-suite('wrapWith Test Suite', () => {
+suite.skip('wrapWith Test Suite', () => {
 
   const wrapper = (child: String) => `(${child})`;
 

@@ -5,7 +5,7 @@ import * as assert from 'assert';
 import { afterEach } from "mocha";
 import { flutterWidgetEmptyBuildFixture } from "../fixtures/flutterWidgetEmptyBuildFixture";
 
-suite('emptyChild Test Suite', () => {
+suite.skip('emptyChild Test Suite', () => {
 
   afterEach(async() => {
       await commands.executeCommand('workbench.action.closeActiveEditor');
