@@ -1,12 +1,11 @@
-import { Position } from "vscode";
-import { getClassCode } from "../../../utils/bloc-state-parser";
+import { getClassReflection } from "../../../utils/bloc-state-parser";
 import { blocStateFixture } from "../../fixtures/blocStateFixture";
 import * as assert from 'assert';
 
-suite('getClassCode Test Suite', () => {
+suite('getClassReflection Test Suite', () => {
 
-	test('getClassCode check 1', async () => {
-        const classCode = getClassCode(
+	test('getClassReflection check 1', async () => {
+        const classCode = getClassReflection(
             blocStateFixture(),
             16,
         );
@@ -39,8 +38,8 @@ class AddOrderState extends Equatable {
         assert.strictEqual(classCode!.source, expectedContent);
     });
 
-	test('getClassCode check 2', async () => {
-        const classCode = getClassCode(
+	test('getClassReflection check 2', async () => {
+        const classCode = getClassReflection(
             blocStateFixture(),
             5,
         );
@@ -54,8 +53,8 @@ class RandomClass1 {
         assert.strictEqual(classCode!.source, expectedContent);
     });
 
-	test('getClassCode check 3', async () => {
-        const classCode = getClassCode(
+	test('getClassReflection check 3', async () => {
+        const classCode = getClassReflection(
             blocStateFixture(),
             33,
         );

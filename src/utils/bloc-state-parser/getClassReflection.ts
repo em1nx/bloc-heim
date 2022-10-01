@@ -4,12 +4,12 @@ const EOL_CHARACTER = "\n";
 const OPEN_BRACKET = '{';
 const CLOSING_BRACKET = '}';
 
-export interface ClassCode {
+export interface ClassReflection {
     name: string,
     source: string,
 }
 
-export function getClassCode(text: string, selectionLine: number): ClassCode | null {
+export function getClassReflection(text: string, selectionLine: number): ClassReflection | null {
 
     let className;
     let classLine;
