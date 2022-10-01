@@ -35,7 +35,7 @@ class AddOrderState extends Equatable {
 }           
 `.trim();
         assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.source, expectedContent);
+        assert.strictEqual(classCode!.text, expectedContent);
     });
 
 	test('getClassReflection check 2', async () => {
@@ -50,7 +50,7 @@ class RandomClass1 {
 }          
 `.trim();
         assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.source, expectedContent);
+        assert.strictEqual(classCode!.text, expectedContent);
     });
 
 	test('getClassReflection check 3', async () => {
@@ -65,7 +65,7 @@ class RandomClass2 {
 }          
 `.trim();
         assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.source, expectedContent);
+        assert.strictEqual(classCode!.text, expectedContent);
     });
 
 });

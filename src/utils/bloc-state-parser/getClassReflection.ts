@@ -6,7 +6,7 @@ const CLOSING_BRACKET = '}';
 
 export interface ClassReflection {
     name: string,
-    source: string,
+    text: string,
 }
 
 export function getClassReflection(text: string, selectionLine: number): ClassReflection | null {
@@ -16,7 +16,7 @@ export function getClassReflection(text: string, selectionLine: number): ClassRe
     const lines = text.split(EOL_CHARACTER);
 
     // Find class name and line
-    for (let l = selectionLine; l--; l >= 0) {
+    for (let l = selectionLine; l >= 0; l--) {
         const match = lines[l].match(CLASS_PATTERN);
         if (match) {
             classLine = l;
@@ -27,12 +27,12 @@ export function getClassReflection(text: string, selectionLine: number): ClassRe
 
     // Find class closing bracket and return result
     if (classLine !== undefined && className !== undefined) {
-        const tempSource = lines.slice(classLine).join(EOL_CHARACTER);
-        let lastClosingBracketPosition = getLastClosingBracketPosition(tempSource);
+        const tempText = lines.slice(classLine).join(EOL_CHARACTER);
+        let lastClosingBracketPosition = getLastClosingBracketPosition(tempText);
         if (lastClosingBracketPosition !== null) {
             return {
                 name: className,
-                source: tempSource.substring(0, lastClosingBracketPosition+1),
+                text: tempText.substring(0, lastClosingBracketPosition+1),
             };
         }
     }
