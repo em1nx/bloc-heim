@@ -34,7 +34,7 @@ Commands and code-actions for all bloc Flutter widgets:
 
 ### Adding a new state property
 - Place a cursor with a state class and execute 'Add bloc state property` from Command Palette.
-- Adding a new property from code actions: run a [Quick Fix or Refactor command](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings) when cusor located within state class. 
+- Adding a new property from code actions: run a [Quick Fix or Refactor command](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings) when cusor located within state a class. 
 
 ### Wrapping a code with Bloc widgets
 
