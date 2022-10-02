@@ -18,8 +18,7 @@ export async function addStatePropertyCommand() {
 
     const snippet = getStatePropertySnippet(classReflection);
     await editor.insertSnippet(snippet, new Selection(anchor,active));
-
-   await commands.executeCommand("editor.action.formatDocument");
+    await commands.executeCommand("editor.action.formatDocument");
 } 
 
 function getStatePropertySnippet(classReflection: ClassReflection): SnippetString {
