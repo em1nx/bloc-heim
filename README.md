@@ -11,7 +11,7 @@ Command `bloc-heim.createBloc` for [equatable](https://pub.dev/packages/equatabl
 - Bloc events file. 
 
 Command `bloc-heim.addStateProperty`:
-- Adds new property snippet to bloc state class.
+- Adds a new property snippet to bloc state class.
 - Works only only for [status-based state classes](https://bloclibrary.dev/#/blocnamingconventions?id=single-class-1). 
 
 Commands and code-actions for all bloc Flutter widgets:
