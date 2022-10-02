@@ -10,6 +10,10 @@ Command `bloc-heim.createBloc` for [equatable](https://pub.dev/packages/equatabl
 - Bloc state file — one class with status field, with respect to official [bloc naming convention](https://bloclibrary.dev/#/blocnamingconventions).  
 - Bloc events file. 
 
+Command `bloc-heim.addStateProperty`:
+- Adds new property snippet to bloc state class.
+- Works only only for [status-based state classes](https://bloclibrary.dev/#/blocnamingconventions?id=single-class-1). 
+
 Commands and code-actions for all bloc Flutter widgets:
 - BlocProvider: `bloc-heim.wrapWithBlocProvider`
 - MultiBlocProvider: `bloc-heim.wrapWithMultiBlocProvider`
@@ -27,6 +31,10 @@ Commands and code-actions for all bloc Flutter widgets:
 
 - You can create a new bloc with `bloc-heim.createBloc` command in the Command Palette.
 - Also, you can right-click on a folder in the file explorer and then select "Bloc Heim: Create Bloc" item.
+
+### Adding a new state property
+- Place a cursor with a state class and execute 'Add bloc state property` from Command Palette.
+- Adding a new property from code actions: run a [Quick Fix or Refactor command](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings) when cusor located within state class. 
 
 ### Wrapping a code with Bloc widgets
 
