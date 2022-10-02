@@ -27,26 +27,22 @@ enum AddOrderStatus { initial, loading, success, failure }
 
 class AddOrderState extends Equatable {
   const AddOrderState({
-    required this.status,
-    this.propertyName,
+    required this.status,this.propertyName,
     this.error = '',
   });
-
-  final AddOrderStatus status;
-  final PropertyType? propertyName;
+  
+  final AddOrderStatus status;final PropertyType? propertyName;
   final String error;
-    
+  
   @override
-  List<Object?> get props => [status, propertyName, error];
-
+  List<Object?> get props => [status,propertyName, error];
+  
   AddOrderState copyWith({
-    AddOrderStatus? status,
-    PropertyType? propertyName,
+    AddOrderStatus? status,PropertyType? propertyName,
     String? error,
   }) {
     return AddOrderState(
-      status: status ?? this.status,
-      propertyName: propertyName ?? this.propertyName,
+      status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
       error: error ?? this.error,
     );
   }
