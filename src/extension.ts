@@ -1,5 +1,6 @@
 import { commands, ExtensionContext, languages } from 'vscode';
 import { BlocCodeActionProvider } from './code-actions/blocCodeActionsProvider';
+import { addStatePropertyCommand } from './commands/addStatePropertyCommand';
 import { createBlocCommand } from './commands/createBlocCommand';
 import { wrapWithBlocBuilderCommand } from './commands/wrapWithBlocBuilderCommand';
 import { wrapWithBlocConsumerCommand } from './commands/wrapWithBlocConsumerCommand';
@@ -50,6 +51,10 @@ export function activate(context: ExtensionContext) {
 
     context.subscriptions.push(
         commands.registerCommand('bloc-heim.wrapWithMultiRepositoryProvider', wrapWithMultiRepositoryProviderCommand)
+    );
+
+    context.subscriptions.push(
+        commands.registerCommand('bloc-heim.addStateProperty', addStatePropertyCommand)
     );
 
     languages.registerCodeActionsProvider(
