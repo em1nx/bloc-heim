@@ -11,6 +11,6 @@ export const wrapWith = async (snippetWrapper: SnippetWrapper) => {
     const selection = getSelectedText(editor);
     const child = editor.document.getText(selection).replace("$", "\\$");
     const snippet = new SnippetString(snippetWrapper(child));
-    editor.insertSnippet(snippet, selection);
+    await editor.insertSnippet(snippet, selection);
     await commands.executeCommand("editor.action.formatDocument");
   };

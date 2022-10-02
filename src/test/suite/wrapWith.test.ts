@@ -1,4 +1,4 @@
-import { commands, Position, Selection, window } from "vscode";
+import { commands, Position } from "vscode";
 import { flutterWidgetFixture } from "../fixtures";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
