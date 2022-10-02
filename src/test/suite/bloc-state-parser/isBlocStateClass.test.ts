@@ -4,7 +4,7 @@ import * as assert from 'assert';
 import { blocStateStatusLastFixture } from "../../fixtures/blocStateStatusLastFixture";
 import { blocStateStatusMiddleFixture } from "../../fixtures/blocStateStatusMiddleFixture";
 
-suite.skip('isBlocStateClass Test Suite', () => {
+suite('isBlocStateClass Test Suite', () => {
 
 	test('isBlocStateClass check valid state class', async () => {
         const classRefelection = getClassReflection(blocStateFixture(), 16);

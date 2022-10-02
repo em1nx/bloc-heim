@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import { TextDecoder } from 'util';
 import { createBlocFiles } from '../../utils';
 
-suite.skip('createBlocFiles Test Suite', () => {
+suite('createBlocFiles Test Suite', () => {
 	const tmpdir = os.tmpdir();
 	const decoder = new TextDecoder();
 

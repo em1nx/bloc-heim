@@ -14,3 +14,7 @@ async function createDocument(content: string, language?: string) {
         content,
     });
 }
+
+export function clearSpaces(content: string) {
+    return content.replace(/\s+/g,'');
+}

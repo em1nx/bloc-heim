@@ -2,9 +2,9 @@ import { commands, Position, Selection, window } from "vscode";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
-import { blocStateFixture } from "../fixtures/blocStateFixture";
+import { blocStateCleanFixture } from "../fixtures/blocStateCleanFixture";
 
-suite.skip('addStateProperty Test Suite', () => {
+suite('addStateProperty Test Suite', () => {
 
     afterEach(async() => {
         await commands.executeCommand('workbench.action.closeActiveEditor');
@@ -18,47 +18,39 @@ suite.skip('addStateProperty Test Suite', () => {
         ];
 
         for (const position of positions) {
-            const doc = await openDocument(blocStateFixture(), position);
+            const doc = await openDocument(blocStateCleanFixture(), position);
             await commands.executeCommand('bloc-heim.addStateProperty');
             const expectedContent = `
 part of 'add_order_bloc.dart';
 
 enum AddOrderStatus { initial, loading, success, failure }
 
-class RandomClass1 {
-  const RandomClass1();
-}
-
 class AddOrderState extends Equatable {
   const AddOrderState({
     required this.status,
+    this.propertyName,
     this.error = '',
-    this.newProperty,
   });
 
   final AddOrderStatus status;
+  final PropertyType? propertyName;
   final String error;
-  final String newProperty;
     
   @override
-  List<Object?> get props => [status, error, newProperty];
+  List<Object?> get props => [status, propertyName, error];
 
   AddOrderState copyWith({
     AddOrderStatus? status,
+    PropertyType? propertyName,
     String? error,
-    String? newProperty,
   }) {
     return AddOrderState(
       status: status ?? this.status,
+      propertyName: propertyName ?? this.propertyName,
       error: error ?? this.error,
-      newProperty: newProperty ?? this.newProperty,
     );
   }
 }  
-
-class RandomClass2 {
-  const RandomClass2();
-}
             `.trim();
             assert.strictEqual(doc.getText(), expectedContent, `${position.line}:${position.character}`);
         }        

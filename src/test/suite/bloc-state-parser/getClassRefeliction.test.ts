@@ -2,7 +2,7 @@ import { getClassReflection } from "../../../utils/bloc-state-parser";
 import { blocStateFixture } from "../../fixtures/blocStateFixture";
 import * as assert from 'assert';
 
-suite.skip('getClassReflection Test Suite', () => {
+suite('getClassReflection Test Suite', () => {
 
 	test('getClassReflection check 1', async () => {
         const classRefelection = getClassReflection(
