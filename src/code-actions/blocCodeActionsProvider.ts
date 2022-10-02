@@ -15,7 +15,7 @@ export class BlocCodeActionProvider implements CodeActionProvider {
     const isAddStateProperty = classReflection ? isBlocStateClass(classReflection) : false;
 
     const selectedText = editor.document.getText(getSelectedText(editor));
-    if (selectedText === "" && !isAddStateProperty) {
+    if (["",")","(","{","}"].includes(selectedText) && !isAddStateProperty) {
       return [];
     }
 
