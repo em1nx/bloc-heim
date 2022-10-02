@@ -37,7 +37,7 @@ function insertConstructorArgument(className: string, snippetText: string) {
         's'
     );
     return snippetText.replace(pattern, (_, before, after) => {
-        const insert = (before.slice(-1) !== ',' ? ',' : '') + 'required this.\${2:propertyName},';
+        const insert = (before.slice(-1) !== ',' ? ',' : '') + 'this.\${2:propertyName},';
         return before + insert + after + ')';
     });
 }
@@ -47,7 +47,7 @@ function insertPropertySnippet(className: string, snippetText: string) {
         `(?<before>final ${className.replace('State','Status')} status;)`,
     );
     return snippetText.replace(pattern, (_, before) => {
-        return before + 'final \${1:PropertyType} \${2:propertyName};';
+        return before + 'final \${1:PropertyType}? \${2:propertyName};';
     });
 }
 
