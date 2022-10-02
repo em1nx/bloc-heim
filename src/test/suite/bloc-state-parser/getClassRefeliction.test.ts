@@ -5,7 +5,7 @@ import * as assert from 'assert';
 suite('getClassReflection Test Suite', () => {
 
 	test('getClassReflection check 1', async () => {
-        const classCode = getClassReflection(
+        const classRefelection = getClassReflection(
             blocStateFixture(),
             16,
         );
@@ -34,12 +34,12 @@ class AddOrderState extends Equatable {
   }
 }           
 `.trim();
-        assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.text, expectedContent);
+        assert.ok(classRefelection !== undefined);
+        assert.strictEqual(classRefelection!.text, expectedContent);
     });
 
 	test('getClassReflection check 2', async () => {
-        const classCode = getClassReflection(
+        const classRefelection = getClassReflection(
             blocStateFixture(),
             5,
         );
@@ -49,12 +49,12 @@ class RandomClass1 {
   const RandomClass1();
 }          
 `.trim();
-        assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.text, expectedContent);
+        assert.ok(classRefelection !== undefined);
+        assert.strictEqual(classRefelection!.text, expectedContent);
     });
 
 	test('getClassReflection check 3', async () => {
-        const classCode = getClassReflection(
+        const classRefelection = getClassReflection(
             blocStateFixture(),
             33,
         );
@@ -64,9 +64,17 @@ class RandomClass2 {
   const RandomClass2();
 }          
 `.trim();
-        assert.ok(classCode !== undefined);
-        assert.strictEqual(classCode!.text, expectedContent);
+        assert.ok(classRefelection !== undefined);
+        assert.strictEqual(classRefelection!.text, expectedContent);
     });
+
+    test('getClassReflection null reflection check', async () => {
+      const classRefelection = getClassReflection(
+          blocStateFixture(),
+          3,
+      );
+      assert.ok(classRefelection === null);
+  });
 
 });
 
