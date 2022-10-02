@@ -34,7 +34,7 @@ Commands and code-actions for all bloc Flutter widgets:
 
 ### Adding a new state property
 
-- Place a cursor within a state class and execute 'Add bloc state property` from Command Palette.
+- Place a cursor within a state class and execute 'Add bloc state property' from Command Palette.
 - Adding a new property from code actions is also available. 
 
 ### Wrapping a code with Bloc widgets
