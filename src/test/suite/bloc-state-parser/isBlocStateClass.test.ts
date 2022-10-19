@@ -4,6 +4,7 @@ import * as assert from 'assert';
 import { blocStateStatusLastFixture } from "../../fixtures/blocStateStatusLastFixture";
 import { blocStateStatusMiddleFixture } from "../../fixtures/blocStateStatusMiddleFixture";
 import { blocStateTablePropsFixture } from "../../fixtures/blocStateTablePropsFixture";
+import { blocStateNotNullPropsFixture } from "../../fixtures/blocStateNotNullPropsFixture";
 
 suite('isBlocStateClass Test Suite', () => {
 
@@ -54,6 +55,15 @@ suite('isBlocStateClass Test Suite', () => {
 
       test('isBlocStateClass check table Equatable props', async () => {
         const classRefelection = getClassReflection(blocStateTablePropsFixture(), 10);
+        if (classRefelection === null) {
+            assert.fail('invalid class reflection');
+        }
+        const isStateClass = isBlocStateClass(classRefelection);
+        assert.ok(isStateClass);
+      });
+
+      test('isBlocStateClass check not null Equatable props', async () => {
+        const classRefelection = getClassReflection((blocStateNotNullPropsFixture()), 10);
         if (classRefelection === null) {
             assert.fail('invalid class reflection');
         }

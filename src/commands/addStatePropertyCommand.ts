@@ -75,7 +75,7 @@ function insertCopyWithBody(snippetText: string) {
 
 function insertEquatableField(snippetText: string) {
     const pattern = new RegExp(
-        `(?<before>List<Object\\?> get props => \\[.*?status,)(?<after>.*?)\\]`,
+        `(?<before>List<Object\\??> get props => \\[.*?status,)(?<after>.*?)\\]`,
         's'
     );
     return snippetText.replace(pattern, (_, before, after) => {
