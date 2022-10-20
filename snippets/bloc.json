@@ -1,5 +1,5 @@
 {
-    "Bloc Event": {
+    "Bloc event": {
       "prefix": "blocevent",
       "body": [
         "class ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}${1:Noun}${2:Verb} extends ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}Event {",
@@ -8,7 +8,7 @@
       ],
       "description": "Bloc Subject + Noun (optional) + Verb (event)"
     },  
-    "Bloc Event Handler": {
+    "Bloc event Handler": {
       "prefix": "onblocevent",
       "body": [
         "on<${TM_FILENAME_BASE/(.*)_bloc$/${1:/pascalcase}/g}${1:Event}>((event, emit) {",
@@ -16,5 +16,13 @@
         "});"
       ],
       "description": "Register a new Bloc Event Handler"
+    },
+    "Emit bloc state": {
+      "prefix": "emitblocstate",
+      "body": [
+        "emit(state.copyWith($1));"
+      ],
+      "description": "Emits new bloc state"
     }
+
   }
