@@ -73,7 +73,7 @@ class MyTestState extends Equatable {
   }) {
     return MyTestState(
       status: status ?? this.status,
-      error: this.error,
+      error: error,
     );
   }
 }

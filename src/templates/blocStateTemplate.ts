@@ -23,7 +23,7 @@ class ${blocClassname}State extends Equatable {
   }) {
     return ${blocClassname}State(
       status: status ?? this.status,
-      error: this.error,
+      error: error,
     );
   }
 }
