@@ -4,6 +4,9 @@
       "body": [
         "class ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}${1:Noun}${2:Verb} extends ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}Event {",
         "\tconst ${TM_FILENAME_BASE/(.*)_events$/${1:/pascalcase}/g}$1$2();",
+        "\t",
+        "\t@override",
+        "\tList<Object> get props => [];",
         "}"
       ],
       "description": "Bloc Subject + Noun (optional) + Verb (event)"
