@@ -1,5 +1,5 @@
 import { commands, Position } from "vscode";
-import { flutterWidgetFixture } from "../fixtures";
+import { flutterWidgetFixture } from "../fixtures/flutterWidgetFixture";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
