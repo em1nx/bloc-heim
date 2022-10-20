@@ -4,17 +4,17 @@
 
 ## Features
 
-**Command `bloc-heim.createBloc` for [equatable](https://pub.dev/packages/equatable)-based bloc template, which includes:**
+### Command `bloc-heim.createBloc` for [equatable](https://pub.dev/packages/equatable)-based bloc template, which includes:
 
 - Main bloc file. 
 - Bloc state file — one class with status field, with respect to official [bloc naming convention](https://bloclibrary.dev/#/blocnamingconventions).  
 - Bloc events file. 
 
-**Command `bloc-heim.addStateProperty`:**
+### Command and code action `bloc-heim.addStateProperty`:
 - Adds a new property snippet to bloc state class.
 - Works only for [status-based state classes](https://bloclibrary.dev/#/blocnamingconventions?id=single-class-1). 
 
-**Commands and code-actions for all bloc Flutter widgets:**
+### Wrappers (commands) and code-actions for all bloc Flutter widgets:
 - BlocProvider: `bloc-heim.wrapWithBlocProvider`
 - MultiBlocProvider: `bloc-heim.wrapWithMultiBlocProvider`
 - BlocBuilder: `bloc-heim.wrapWithBlocBuilder`
@@ -25,7 +25,7 @@
 - RepositoryProvider: `bloc-heim.wrapWithRepositoryProvider`
 - MultiRepositoryProvider: `bloc-heim.wrapWithMultiRepositoryProvider`
 
-**Snippets:**
+### Snippets:
 - `blocevent` - generates new bloc event class with placeholders.
 - `onblocevent` - generates code for bloc`s event handler.
 - `emitblocstate` - generates bloc`s emit code with state.copyWith included.
