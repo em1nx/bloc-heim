@@ -14,7 +14,7 @@
 - Adds a new property snippet to bloc state class.
 - Works only for [status-based state classes](https://bloclibrary.dev/#/blocnamingconventions?id=single-class-1). 
 
-### Wrappers (commands) and code-actions for all bloc Flutter widgets:
+### Wrappers and code-actions for all bloc Flutter widgets:
 - BlocProvider: `bloc-heim.wrapWithBlocProvider`
 - MultiBlocProvider: `bloc-heim.wrapWithMultiBlocProvider`
 - BlocBuilder: `bloc-heim.wrapWithBlocBuilder`
