@@ -6,12 +6,12 @@ class AddOrderState extends Equatable {
   const AddOrderState({
     required this.newField,
     required this.status,
-    this.error = '',
+    this.error,
   });
   
   final bool newField;
   final AddOrderStatus status;
-  final String error;
+  final String? error;
   
   @override
   List<Object?> get props => [newField, status, error];
@@ -24,7 +24,7 @@ class AddOrderState extends Equatable {
     return AddOrderState(
       bool: newField ?? this.newField,
       status: status ?? this.status,
-      error: error ?? this.error,
+      error: this.error,
     );
   }
 }  

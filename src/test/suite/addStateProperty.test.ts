@@ -29,11 +29,11 @@ enum AddOrderStatus { initial, loading, success, failure }
 class AddOrderState extends Equatable {
   const AddOrderState({
     required this.status,this.propertyName,
-    this.error = '',
+    this.error,
   });
   
   final AddOrderStatus status;final PropertyType? propertyName;
-  final String error;
+  final String? error;
   
   @override
   List<Object?> get props => [status,propertyName, error];
@@ -44,7 +44,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: error ?? this.error,
+      error: this.error,
     );
   }
 }  
@@ -64,11 +64,11 @@ enum AddOrderStatus { initial, loading, success, failure }
 class AddOrderState extends Equatable {
   const AddOrderState({
     required this.status,this.propertyName,
-    this.error = '',
+    this.error,
   });
   
   final AddOrderStatus status;final PropertyType? propertyName;
-  final String error;
+  final String? error;
   
   @override
   List<Object> get props => [status,propertyName, error];
@@ -79,7 +79,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: error ?? this.error,
+      error: this.error,
     );
   }
 }  

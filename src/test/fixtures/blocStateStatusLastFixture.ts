@@ -5,12 +5,12 @@ export function blocStateStatusLastFixture(): string {
 class AddOrderState extends Equatable {
   const AddOrderState({
     required this.newField,
-    this.error = '',
+    this.error,
     required this.status,
   });
   
   final bool newField;
-  final String error;
+  final String? error;
   final AddOrderStatus status;
   
   @override
@@ -23,7 +23,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       bool: newField ?? this.newField,
-      error: error ?? this.error,
+      error: this.error,
       status: status ?? this.status,
     );
   }

@@ -1,9 +1,9 @@
 import { commands, Position } from "vscode";
-import { flutterWidgetFixture } from "../fixtures";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
 import { wrapWith } from "../../utils";
+import { flutterWidgetFixture } from "../fixtures/flutterWidgetFixture";
 
 suite('wrapWith Test Suite', () => {
 
