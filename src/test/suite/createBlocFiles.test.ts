@@ -58,14 +58,14 @@ enum MyTestStatus { initial, loading, success, failure }
 class MyTestState extends Equatable {
   const MyTestState({
     required this.status,
-    this.error = '',
+    this.error,
   });
 
   final MyTestStatus status;
-  final String error;
+  final String? error;
 
   @override
-  List<Object> get props => [status, error];
+  List<Object?> get props => [status, error];
 
   MyTestState copyWith({
     MyTestStatus? status,
@@ -73,7 +73,7 @@ class MyTestState extends Equatable {
   }) {
     return MyTestState(
       status: status ?? this.status,
-      error: error ?? this.error,
+      error: this.error,
     );
   }
 }
