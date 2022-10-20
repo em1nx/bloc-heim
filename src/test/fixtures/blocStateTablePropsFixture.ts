@@ -27,7 +27,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       status: status ?? this.status,
-      error: this.error,
+      error: error,
     );
   }
 }  

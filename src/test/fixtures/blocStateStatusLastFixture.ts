@@ -23,7 +23,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       bool: newField ?? this.newField,
-      error: this.error,
+      error: error,
       status: status ?? this.status,
     );
   }

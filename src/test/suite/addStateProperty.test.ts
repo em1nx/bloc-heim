@@ -44,7 +44,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: this.error,
+      error: error,
     );
   }
 }  
@@ -79,7 +79,7 @@ class AddOrderState extends Equatable {
   }) {
     return AddOrderState(
       status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: this.error,
+      error: error,
     );
   }
 }  
