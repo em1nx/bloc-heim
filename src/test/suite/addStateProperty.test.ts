@@ -2,8 +2,7 @@ import { commands, Position, Selection, window } from "vscode";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
-import { blocStateCleanFixture } from "../fixtures/blocStateCleanFixture";
-import { blocStateNotNullPropsFixture } from "../fixtures/blocStateNotNullPropsFixture";
+import { blocStateFixture } from "../fixtures/blocStateFixture";
 
 suite('addStateProperty Test Suite', () => {
 
@@ -13,38 +12,42 @@ suite('addStateProperty Test Suite', () => {
     
 	test('addStateProperty for class check', async () => {
         const positions = [
-            new Position(16,2), // Between lines in class
-            new Position(10,2), // In constructor
-            new Position(26,6), // In copyWith 
+            new Position(12,2), // Between lines in class
+            new Position(7,2), // In constructor
+            new Position(20,6), // In copyWith 
         ];
 
         for (const position of positions) {
-            const doc = await openDocument(blocStateCleanFixture(), position);
+            const doc = await openDocument(blocStateFixture({randomClasses: false}), position);
             await commands.executeCommand('bloc-heim.addStateProperty');
             const expectedContent = `
 part of 'add_order_bloc.dart';
 
-enum AddOrderStatus { initial, loading, success, failure }
+enum TestStatus { initial, loading, success, failure }
 
-class AddOrderState extends Equatable {
-  const AddOrderState({
-    required this.status,this.propertyName,
-    this.error,
+class TestState extends Equatable {
+  const TestState({
+    required this.status,
+    this.innerProp1,
+    this.propertyName,this.error,
   });
   
-  final AddOrderStatus status;final PropertyType? propertyName;
-  final String? error;
+  final TestStatus status;
+  final String? innerProp1;
+  final PropertyType? propertyName;final String? error;
   
   @override
-  List<Object?> get props => [status,propertyName, error];
+  List<Object?> get props => [status, innerProp1, propertyName, error];
   
-  AddOrderState copyWith({
-    AddOrderStatus? status,PropertyType? propertyName,
-    String? error,
+  TestState copyWith({
+    TestStatus? status,
+    String? innerProp1,
+    PropertyType? propertyName,String? error,
   }) {
-    return AddOrderState(
-      status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: error,
+    return TestState(
+      status: status ?? this.status,
+      innerProp1: innerProp1 ?? this.innerProp1,
+      propertyName: propertyName ?? this.propertyName,error: error,
     );
   }
 }  
@@ -54,37 +57,41 @@ class AddOrderState extends Equatable {
     });
 
     test('addStateProperty for class check (not null state)', async () => {
-          const doc = await openDocument(blocStateNotNullPropsFixture(), new Position(10,2));
+          const doc = await openDocument(blocStateFixture({nullableProps: false, randomClasses: false}), new Position(10,2));
           await commands.executeCommand('bloc-heim.addStateProperty');
           const expectedContent = `
 part of 'add_order_bloc.dart';
 
-enum AddOrderStatus { initial, loading, success, failure }
+enum TestStatus { initial, loading, success, failure }
 
-class AddOrderState extends Equatable {
-  const AddOrderState({
-    required this.status,this.propertyName,
-    this.error,
+class TestState extends Equatable {
+  const TestState({
+    required this.status,
+    this.innerProp1,
+    this.propertyName,this.error,
   });
   
-  final AddOrderStatus status;final PropertyType? propertyName;
-  final String? error;
+  final TestStatus status;
+  final String? innerProp1;
+  final PropertyType? propertyName;final String? error;
   
   @override
-  List<Object> get props => [status,propertyName, error];
+  List<Object> get props => [status, innerProp1, propertyName, error];
   
-  AddOrderState copyWith({
-    AddOrderStatus? status,PropertyType? propertyName,
-    String? error,
+  TestState copyWith({
+    TestStatus? status,
+    String? innerProp1,
+    PropertyType? propertyName,String? error,
   }) {
-    return AddOrderState(
-      status: status ?? this.status,propertyName: propertyName ?? this.propertyName,
-      error: error,
+    return TestState(
+      status: status ?? this.status,
+      innerProp1: innerProp1 ?? this.innerProp1,
+      propertyName: propertyName ?? this.propertyName,error: error,
     );
   }
 }  
-          `.trim();
-          assert.strictEqual(doc.getText(), expectedContent);
+      `.trim();
+      assert.strictEqual(doc.getText(), expectedContent);
   });
 
 });

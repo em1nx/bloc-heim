@@ -1,41 +1,75 @@
 
+interface FixtureArguments {
+  nullableProps?: boolean,
+  propsAsTable?: boolean,
+  errorField?: boolean,
+  randomClasses?: boolean,
+}
 
-export function blocStateFixture(): string {
+export function blocStateFixture(args?: FixtureArguments): string {
+    args = {
+      nullableProps: args?.nullableProps ?? true,
+      propsAsTable: args?.propsAsTable ?? false,
+      errorField: args?.errorField ?? true,
+      randomClasses: args?.randomClasses ?? true,
+    };
+
     return `
 part of 'add_order_bloc.dart';
 
-enum AddOrderStatus { initial, loading, success, failure }
-
-class RandomClass1 {
-  const RandomClass1();
-}
-
-class AddOrderState extends Equatable {
-  const AddOrderState({
+enum TestStatus { initial, loading, success, failure }
+${args.randomClasses ? randomClass(1) : ''}
+class TestState extends Equatable {
+  const TestState({
     required this.status,
-    this.error,
+    this.innerProp1,
+    ${args.errorField ? "this.error," : ''}
   });
   
-  final AddOrderStatus status;
-  final String? error;
+  final TestStatus status;
+  final String? innerProp1;
+  ${args.errorField ? "final String? error;" : ''}
   
   @override
-  List<Object?> get props => [status, error];
+  ${props(args)}
   
-  AddOrderState copyWith({
-    AddOrderStatus? status,
-    String? error,
+  TestState copyWith({
+    TestStatus? status,
+    String? innerProp1,
+    ${args.errorField ? "String? error," : ''}
   }) {
-    return AddOrderState(
+    return TestState(
       status: status ?? this.status,
-      error: error,
+      innerProp1: innerProp1 ?? this.innerProp1,
+      ${args.errorField ? "error: error," : ""}
     );
   }
 }  
-
-class RandomClass2 {
-  const RandomClass2();
+${args.randomClasses ? randomClass(2) : ''}
+`.trim();
 }
 
-`.trim();
+
+function props(args: FixtureArguments) {
+  let {nullableProps, propsAsTable, errorField} = args;
+  if (propsAsTable) {
+    return `
+List<Object${nullableProps ? '?' : ''}> get props => [
+  status,
+  innerProp1,
+  ${errorField ? "error," : ''}
+];`.trim();
+  } 
+  else {
+    return `List<Object${nullableProps ? '?' : ''}> get props => [status, innerProp1${errorField ? ', error' : ''}];`;
+  }   
+}
+
+
+function randomClass(id: number) {
+  let classCode = `
+class RandomClass${id} {
+  const RandomClass${id}();
+}`.trim();
+  return `\n${classCode}\n`;
 }

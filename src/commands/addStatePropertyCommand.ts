@@ -121,13 +121,13 @@ function insertEquatableField(snippetText: string) {
         for (let i = 0; i < propsList.length; i++) {
             if (propsList[i] === 'error') {
                 propsList.splice(i, 0, '${2:propetyName}');
-                return before + '[' + propsList.join(', ') + ',]';
+                return before + '[' + propsList.join(', ') + ']';
             }
         }
         for (let i = 0; i < propsList.length; i++) {
             if (propsList[i] === 'status') {
                 propsList.splice(i+1, 0, '${2:propetyName}').join(', ');
-                return before + '[' + propsList.join(', ') + ',]';
+                return before + '[' + propsList.join(', ') + ']';
             }
         }
         return snippetText;
