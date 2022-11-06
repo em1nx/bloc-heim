@@ -94,5 +94,43 @@ class TestState extends Equatable {
       assert.strictEqual(doc.getText(), expectedContent);
   });
 
+  test('addStateProperty for class check (table props)', async () => {
+    const doc = await openDocument(blocStateFixture({propsAsTable: true, randomClasses: false}), new Position(10,2));
+    await commands.executeCommand('bloc-heim.addStateProperty');
+    const expectedContent = `
+part of 'add_order_bloc.dart';
+
+enum TestStatus { initial, loading, success, failure }
+
+class TestState extends Equatable {
+  const TestState({
+    required this.status,
+    this.innerProp1,
+    this.propertyName,this.error,
+  });
+  
+  final TestStatus status;
+  final String? innerProp1;
+  final PropertyType? propertyName;final String? error;
+  
+  @override
+  List<Object?> get props => [status, innerProp1, propertyName, error, ];
+  
+  TestState copyWith({
+    TestStatus? status,
+    String? innerProp1,
+    PropertyType? propertyName,String? error,
+  }) {
+    return TestState(
+      status: status ?? this.status,
+      innerProp1: innerProp1 ?? this.innerProp1,
+      propertyName: propertyName ?? this.propertyName,error: error,
+    );
+  }
+}  
+`.trim();
+    assert.strictEqual(doc.getText(), expectedContent);
+});
+
 });
 
