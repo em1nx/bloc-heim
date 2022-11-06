@@ -26,61 +26,111 @@ function getStatePropertySnippet(classReflection: ClassReflection): SnippetStrin
     snippetText = insertConstructorArgument(classReflection.name, snippetText);
     snippetText = insertPropertySnippet(classReflection.name, snippetText);
     snippetText = insertCopyWithArgument(classReflection.name, snippetText);
-    snippetText = insertCopyWithBody(snippetText);
+    snippetText = insertCopyWithBody(classReflection.name, snippetText);
     snippetText = insertEquatableField(snippetText);
     return new SnippetString(snippetText);
 }
 
 function insertConstructorArgument(className: string, snippetText: string) {
-    const pattern = new RegExp(
+    const errorPattern = new RegExp(
+        `(?<before>${className}\\(\.+)(?<after>this\\.error,?\.+?)\\)`,
+        's'
+    );
+    if (snippetText.match(errorPattern)) {
+        return snippetText.replace(errorPattern, (_, before, after) => {
+            const insert = 'this.\${2:propertyName},';
+            return before + insert + after + ')';
+        });
+    }
+    const statusPattern = new RegExp(
         `(?<before>${className}\\(\.+required this\\.status,?)(?<after>\.+?)\\)`,
         's'
     );
-    return snippetText.replace(pattern, (_, before, after) => {
+    return snippetText.replace(statusPattern, (_, before, after) => {
         const insert = (before.slice(-1) !== ',' ? ',' : '') + 'this.\${2:propertyName},';
         return before + insert + after + ')';
-    });
+    });    
 }
 
 function insertPropertySnippet(className: string, snippetText: string) {
-    const pattern = new RegExp(
+    const errorPattern = new RegExp(
+        `(?<after>final String\\? error;)`,
+    );
+    if (snippetText.match(errorPattern)) {
+        return snippetText.replace(errorPattern, (_, after) => {
+            return 'final \${1:PropertyType}? \${2:propertyName};' + after;
+        });
+    }    
+    const statusPattern = new RegExp(
         `(?<before>final ${className.replace('State','Status')} status;)`,
     );
-    return snippetText.replace(pattern, (_, before) => {
+    return snippetText.replace(statusPattern, (_, before) => {
         return before + 'final \${1:PropertyType}? \${2:propertyName};';
     });
 }
 
 function insertCopyWithArgument(className: string, snippetText: string) {
+    const errorPattern = new RegExp(
+        `(?<before>${className} copyWith\\(.+)(?<after>String\\? error(,|\\s|}))`,
+        's'
+    );
+    if (snippetText.match(errorPattern)) {
+        return snippetText.replace(errorPattern, (_, before, after) => {
+            const insert = '\${1:propertyType}? \${2:propetyName},';
+            return before + insert + after;
+        });
+    }    
     const statusClassName = className.replace('State','Status');
-    const pattern = new RegExp(
+    const statusPattern = new RegExp(
         `(?<before>${className} copyWith\\(\.+${statusClassName}\\? status,?)(?<after>\.+?)\\)`,
         's'
     );
-    return snippetText.replace(pattern, (_, before, after) => {
+    return snippetText.replace(statusPattern, (_, before, after) => {
         const insert = (before.slice(-1) !== ',' ? ',' : '') + '\${1:propertyType}? \${2:propetyName},';
         return before + insert + after + ')';
     });
 }
 
-function insertCopyWithBody(snippetText: string) {
-    const pattern = new RegExp(
+function insertCopyWithBody(className: string, snippetText: string) {
+    const errorPattern = new RegExp(
+        `(?<before>return ${className}\\(.+)(?<after>error: error(,|\\s|\\)))`,
+        's'
+    );
+    if (snippetText.match(errorPattern)) {
+        return snippetText.replace(errorPattern, (_, before, after) => {
+            const insert = '\${2:propertyName}: \${2:propertyName} ?? this.\${2:propetyName},';
+            return before + insert + after;
+        });
+    }
+    const statusPattern = new RegExp(
         `(?<before>status: status \\?\\? this\\.status,?)`,
     );
-    return snippetText.replace(pattern, (_, before) => {
+    return snippetText.replace(statusPattern, (_, before) => {
         const insert = (before.slice(-1) !== ',' ? ',' : '') + '\${2:propertyName}: \${2:propertyName} ?? this.\${2:propetyName},';
         return before + insert;
     });
 }
 
 function insertEquatableField(snippetText: string) {
-    const pattern = new RegExp(
-        `(?<before>List<Object\\??> get props => \\[.*?status,)(?<after>.*?)\\]`,
+    const propsPattern = new RegExp(
+        `(?<before>List<Object\\??> get props => )\\[(?<props>.*?)\\]`,
         's'
     );
-    return snippetText.replace(pattern, (_, before, after) => {
-        const insert = (before.slice(-1) !== ',' ? ',' : '') + '\${2:propetyName},';
-        return before + insert + after + ']';
+    return snippetText.replace(propsPattern, (_, before, props) => {
+        const propsList = props.split(',').map((s: string) => s.trim());
+        for (let i = 0; i < propsList.length; i++) {
+            if (propsList[i] === 'error') {
+                propsList.splice(i, 0, '${2:propetyName}');
+                return before + '[' + propsList.join(', ') + ',]';
+            }
+        }
+        for (let i = 0; i < propsList.length; i++) {
+            if (propsList[i] === 'status') {
+                propsList.splice(i+1, 0, '${2:propetyName}').join(', ');
+                return before + '[' + propsList.join(', ') + ',]';
+            }
+        }
+        return snippetText;
     });
 }
 
