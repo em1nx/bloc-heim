@@ -23,12 +23,12 @@ class TestState extends Equatable {
   const TestState({
     required this.status,
     this.innerProp1,
-    ${args.errorField ? "this.error," : ''}
+    ${args.errorField ? "this.error," : 'this.innerProp2,'}
   });
   
   final TestStatus status;
   final String? innerProp1;
-  ${args.errorField ? "final String? error;" : ''}
+  ${args.errorField ? "final String? error;" : 'final String? innerProp2;'}
   
   @override
   ${props(args)}
@@ -36,12 +36,12 @@ class TestState extends Equatable {
   TestState copyWith({
     TestStatus? status,
     String? innerProp1,
-    ${args.errorField ? "String? error," : ''}
+    ${args.errorField ? "String? error," : 'String? innerProp2,'}
   }) {
     return TestState(
       status: status ?? this.status,
       innerProp1: innerProp1 ?? this.innerProp1,
-      ${args.errorField ? "error: error," : ""}
+      ${args.errorField ? "error: error," : "innerProp2: innerProp2 ?? this.innerProp2,"}
     );
   }
 }  
@@ -57,11 +57,11 @@ function props(args: FixtureArguments) {
 List<Object${nullableProps ? '?' : ''}> get props => [
   status,
   innerProp1,
-  ${errorField ? "error," : ''}
+  ${errorField ? "error," : 'innerProp2,'}
 ];`.trim();
   } 
   else {
-    return `List<Object${nullableProps ? '?' : ''}> get props => [status, innerProp1${errorField ? ', error' : ''}];`;
+    return `List<Object${nullableProps ? '?' : ''}> get props => [status, innerProp1${errorField ? ', error' : ', innerProp2'}];`;
   }   
 }
 
