@@ -38,7 +38,7 @@ class TestState extends Equatable {
   
   @override
   List<Object?> get props => [status, innerProp1, propertyName, error];
-
+  
   TestState copyWith({
     TestStatus? status,
     String? innerProp1,
