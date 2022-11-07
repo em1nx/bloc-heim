@@ -11,24 +11,28 @@ suite('getClassReflection Test Suite', () => {
         );
 
 		const expectedContent = `
-class AddOrderState extends Equatable {
-  const AddOrderState({
+class TestState extends Equatable {
+  const TestState({
     required this.status,
+    this.innerProp1,
     this.error,
   });
   
-  final AddOrderStatus status;
+  final TestStatus status;
+  final String? innerProp1;
   final String? error;
   
   @override
-  List<Object?> get props => [status, error];
+  List<Object?> get props => [status, innerProp1, error];
   
-  AddOrderState copyWith({
-    AddOrderStatus? status,
+  TestState copyWith({
+    TestStatus? status,
+    String? innerProp1,
     String? error,
   }) {
-    return AddOrderState(
+    return TestState(
       status: status ?? this.status,
+      innerProp1: innerProp1 ?? this.innerProp1,
       error: error,
     );
   }
@@ -56,7 +60,7 @@ class RandomClass1 {
 	test('getClassReflection check 3', async () => {
         const classRefelection = getClassReflection(
             blocStateFixture(),
-            33,
+            35,
         );
 
 		const expectedContent = `
