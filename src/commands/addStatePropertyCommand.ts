@@ -24,7 +24,7 @@ export async function addStatePropertyCommand() {
 function getStatePropertySnippet(classReflection: ClassReflection): SnippetString {
     let snippetText = classReflection.text;
     snippetText = insertConstructorArgument(classReflection.name, snippetText);
-    snippetText = insertPropertySnippet(classReflection.name, snippetText);
+    snippetText = insertClassPropertySnippet(classReflection.name, snippetText);
     snippetText = insertCopyWithArgument(classReflection.name, snippetText);
     snippetText = insertCopyWithBody(classReflection.name, snippetText);
     snippetText = insertEquatableField(snippetText);
@@ -52,9 +52,9 @@ function insertConstructorArgument(className: string, snippetText: string) {
     });    
 }
 
-function insertPropertySnippet(className: string, snippetText: string) {
+function insertClassPropertySnippet(className: string, snippetText: string) {
     const errorPattern = new RegExp(
-        `(?<after>final String\\? error;)`,
+        `(?<after>final String\\?? error;)`,
     );
     if (snippetText.match(errorPattern)) {
         return snippetText.replace(errorPattern, (_, after) => {
