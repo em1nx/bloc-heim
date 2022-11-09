@@ -33,13 +33,13 @@ function getStatePropertySnippet(classReflection: ClassReflection): SnippetStrin
 
 function insertConstructorArgument(className: string, snippetText: string) {
     const errorPattern = new RegExp(
-        `(?<before>${className}\\(\.+)(?<after>this\\.error,?\.+?)\\)`,
+        `(?<before>${className}\\(\s*{\.+)(?<after>this\\.error,?\.+?)}\\)`,
         's'
     );
     if (snippetText.match(errorPattern)) {
         return snippetText.replace(errorPattern, (_, before, after) => {
             const insert = 'this.\${2:propertyName},';
-            return before + insert + after + ')';
+            return before + insert + after + '})';
         });
     }
     const statusPattern = new RegExp(
@@ -93,7 +93,7 @@ function insertCopyWithArgument(className: string, snippetText: string) {
 
 function insertCopyWithBody(className: string, snippetText: string) {
     const errorPattern = new RegExp(
-        `(?<before>return ${className}\\(.+)(?<after>error: error(,|\\s|\\)))`,
+        `(?<before>return ${className}\\(.+)(?<after>error: error)`,
         's'
     );
     if (snippetText.match(errorPattern)) {

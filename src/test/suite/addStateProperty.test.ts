@@ -1,4 +1,4 @@
-import { commands, Position, Selection, window } from "vscode";
+import { commands, Position } from "vscode";
 import { openDocument } from "../helpers";
 import * as assert from 'assert';
 import { afterEach } from "mocha";
@@ -54,7 +54,7 @@ class TestState extends Equatable {
             `.trim();
             assert.strictEqual(doc.getText(), expectedContent, `${position.line}:${position.character}`);
         }        
-    });
+    }).timeout(6000);
 
     test('addStateProperty for class check (no error field)', async () => {
       const positions = [
