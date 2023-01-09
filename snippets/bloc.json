@@ -30,14 +30,14 @@
     "Read bloc from context": {
       "prefix": "readbloc",
       "body": [
-        "context.read<${1:BlocClass}>();"
+        "context.read<${1:BlocClass}>()"
       ],
       "description": "Reads bloc from context"
     },
     "Read bloc from context and add an event": {
       "prefix": "readblocadd",
       "body": [
-        "context.read<${1:BlocClass}>().add(${2:BlocEventClass});"
+        "context.read<${1:BlocClass}>().add(${2:BlocEventClass})"
       ],
       "description": "Reads bloc from context and adds bloc event"
     }
