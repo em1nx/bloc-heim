@@ -22,7 +22,6 @@ suite('createBlocFiles Test Suite', () => {
 
 		const actualContent = fs.readFileSync(tmpdir + '/my_test_bloc.dart');
 		const expectedContent = `
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -35,10 +34,6 @@ class MyTestBloc extends Bloc<MyTestEvent, MyTestState> {
           status: MyTestStatus.initial,
         )) {
     // TODO: implement event handlers
-  }
-
-  factory MyTestBloc.fromContext(BuildContext context) {
-    return MyTestBloc();
   }
 }		
 `.trim();

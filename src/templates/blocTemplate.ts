@@ -1,7 +1,6 @@
 
 export function blocTemplate(blocClassname: string, blocFilename: string): string {
     return `
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -14,10 +13,6 @@ class ${blocClassname}Bloc extends Bloc<${blocClassname}Event, ${blocClassname}S
           status: ${blocClassname}Status.initial,
         )) {
     // TODO: implement event handlers
-  }
-
-  factory ${blocClassname}Bloc.fromContext(BuildContext context) {
-    return ${blocClassname}Bloc();
   }
 }
 `.trim();
