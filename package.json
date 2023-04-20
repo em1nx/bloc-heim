@@ -2,7 +2,7 @@
 	"name": "bloc-heim",
 	"displayName": "Bloc Heim",
 	"description": "VSCode extension which drastically reduces bloc-related boilerplate code for Flutter projects.",
-	"version": "1.4.3",
+	"version": "2.0.1",
 	"publisher": "em1nx",
 	"icon": "assets/logo.png",
 	"author": {
